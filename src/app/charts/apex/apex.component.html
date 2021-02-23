@@ -1,0 +1,227 @@
+<!--
+<div class="main-wrapper">
+  <div class="page-wrapper full-page">
+    <div class="page-content d-flex align-items-center justify-content-center">
+      <div class="row w-100 mx-0 auth-page">
+        <div class="col-md-8 col-xl-6 mx-auto">
+        <div class="card">
+
+          <form [formGroup]="forgetPasswordForm" *ngIf = "showid1" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-4 pr-md-0">
+                <div class="auth-left-wrapper">
+                </div>
+              </div>
+              <div class="col-md-8 pl-md-0">
+                <div class="auth-form-wrapper px-4 py-5">
+                  <div class = "logp121">
+                    <img _ngcontent-pgh-c179="" src="https://www.feedfleet.com/assests/frotnend/assets/img/logo/logo.png" alt="logo" style="width: 119px;">
+                  </div>
+                  <h5 class="text-muted font-weight-normal mb-4">Forgot password</h5>
+                  <div class="form-group">
+                    <label class="name" for="exampleInputEmail1">Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                       <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                     </div>
+                  </div>
+
+                  <div class="mt-3">
+                       <a href="../../dashboard-one.html" class="btn btn-primary text-white mr-2 mb-2 mb-md-0">Sing up</a> -->
+                      <!-- <button class="btn btn-primary mr-1">Register</button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </form>
+
+            <form [formGroup]="changePasswordForm" *ngIf = "showid"(ngSubmit)="onSubmit1()">
+              <div class="row">
+                <div class="col-md-4 pr-md-0">
+                  <div class="auth-left-wrapper">
+                  </div>
+                </div>
+                <div class="col-md-8 pl-md-0">
+                  <div class="auth-form-wrapper px-4 py-5">
+                    <div class = "logp121">
+                      <img _ngcontent-pgh-c179="" src="https://www.feedfleet.com/assests/frotnend/assets/img/logo/logo.png" alt="logo" style="width: 119px;">
+                    </div>
+                    <h5 class="text-muted font-weight-normal mb-4">Forgot password</h5>
+                    <div class="form-group">
+                      <label class="name" for="exampleInputEmail1">OTP</label>
+                      <input type="text" formControlName="otp" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && p.otp.errors }">
+                      <div *ngIf="submitted1 && p.otp.errors" class="invalid-feedback">
+                        <div *ngIf="p.otp.errors.required">OTP is required</div>
+                        <div *ngIf="p.otp.errors.minlength">OTP must be at least 6 characters</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="name" >Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && p.password.errors }" />
+                      <div *ngIf="submitted1 && p.password.errors" class="invalid-feedback">
+                          <div *ngIf="p.password.errors.required">Password is required</div>
+                          <div *ngIf="p.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                    <div class="form-group">
+                      <label class="name pt-3"> Confirm Password</label>
+                      <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && p.confirmPassword.errors }" />
+                      <div *ngIf="submitted1 && p.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="p.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="p.confirmPassword.errors.mustMatch">Passwords must match</div>
+                      </div>
+                    </div>
+
+                    <div class="text-center pt-4">
+                      <button class="btn btn-primary mr-1">Registerer</button>
+                      <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                  </div>
+                  </div>
+                      </div>
+                  </div>
+                </div>
+              </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->
+
+ spects
+<!--
+ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+ import { ApexComponent } from './apex.component';
+
+ describe('ApexComponent', () => {
+   let component: ApexComponent;
+   let fixture: ComponentFixture<ApexComponent>;
+
+   beforeEach(async(() => {
+     TestBed.configureTestingModule({
+       declarations: [ ApexComponent ]
+     })
+     .compileComponents();
+   }));
+
+   beforeEach(() => {
+     fixture = TestBed.createCompoimport { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+     import { ChangepasswordComponent } from './changepassword.component';
+
+     describe('ChangepasswordComponent', () => {
+       let component: ChangepasswordComponent;
+       let fixture: ComponentFixture<ChangepasswordComponent>;
+
+       beforeEach(async(() => {
+         TestBed.configureTestingModule({
+           declarations: [ ChangepasswordComponent ]
+         })
+         .compileComponents();
+       }));
+
+       beforeEach(() => {
+         fixture = TestBed.createComponent(ChangepasswordComponent);
+         component = fixture.componentInstance;
+         fixture.detectChanges();
+       });
+
+       it('should create', () => {
+         expect(component).toBeTruthy();
+       });
+     });
+     nent(ApexComponent);
+     component = fixture.componentInstance;
+     fixture.detectChanges();
+   });
+
+   it('should create', () => {
+     expect(component).toBeTruthy();
+   });
+ }); -->
+tstststst
+<!--
+import { Component, OnInit } from '@angular/core';
+import { MustMatch } from './mustmatch';
+import { FormBuilder, FormGroup, Validators,} from '@angular/forms';
+
+
+@Component({
+  selector: 'app-changepassword',
+  templateUrl: './changepassword.component.html',
+  styleUrls: ['./changepassword.component.scss']
+})
+export class ChangepasswordComponent implements OnInit {
+
+  showid = false;
+  showid1 = true;
+
+  forgetPasswordForm: FormGroup;
+  changePasswordForm: FormGroup;
+  submitted = false;
+  submitted1 = false;
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.forgetPasswordForm = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+    }, );
+
+    this.changePasswordForm = this.formBuilder.group({
+
+      otp: ['', Validators.required, Validators.minLength(4)],
+
+      // validates date format yyyy-mm-dd
+
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+
+  }, {
+      validator: MustMatch('password', 'confirmPassword')
+  });
+}
+get f() { return this.forgetPasswordForm.controls; }
+get p() { return this.changePasswordForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.forgetPasswordForm.invalid) {
+        return;
+    }
+    this.showid= true;
+    this.showid1 = false;
+    // display form values on success
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.forgetPasswordForm.value, null, 4));
+}
+change(){
+this.showid= true;
+this.showid1 = false;
+}
+
+onSubmit1() {
+  this.submitted1 = true;
+
+  // stop here if form is invalid
+  if (this.changePasswordForm.invalid) {
+      return;
+  }
+
+  // display form values on success
+  // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+}
+
+onReset() {
+  this.submitted = false;
+  this.submitted1 = false;
+  this.forgetPasswordForm.reset();
+  this.changePasswordForm.reset();
+
+}
+
+} -->

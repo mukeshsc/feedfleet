@@ -1,0 +1,63 @@
+
+	<div class="main-wrapper">
+		<div class="page-wrapper full-page">
+			<div class="page-content d-flex align-items-center justify-content-center">
+
+				<div class="row w-100 mx-0 auth-page">
+					<div class="col-md-10 col-xl-6 mx-auto">
+						<div class="card">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+							<div class="row">
+
+                <div class="col-md-4 pr-md-0">
+                  <div class="auth-left-wrapper">
+
+                  </div>
+                </div>
+
+                <div class="col-md-8 pl-md-0">
+                  <div class="auth-form-wrapper px-4 py-5">
+                  <div class = "logp121">
+                    <img _ngcontent-pgh-c179="" src="https://www.feedfleet.com/assests/frotnend/assets/img/logo/logo.png" alt="logo" style="width: 119px;">
+                  </div>
+
+                    <h5 class="text-muted font-weight-normal mb-4"> </h5>
+                    <div class="forms-sample">
+
+
+                      <div class="form-group">
+                        <label>Securoty code</label>
+                    <input type="password" formControlName="SecurityCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SecurityCode.errors }" />
+                    <div *ngIf="submitted && f.SecurityCode.errors" class="invalid-feedback">
+                        <div *ngIf="f.SecurityCode.errors.required">SecurityCode is required</div>
+                        <div *ngIf="f.SecurityCode.errors.minlength">SecurityCode must be at least 6 characters</div>
+                    </div>
+                      </div>
+
+                      <div class="mt-3">
+                        <!-- <a href="../../dashboard-one.html" class="btn btn-primary mr-2 mb-2 mb-md-0 text-white">login</a> -->
+                        <p class="resned">Resend Code in {{minute}} : {{second}}</p>
+                        <div class="text-center">
+                          <button class="btn btn-primary mr-1">Verify code</button>
+                          <button (click) = "reCode()" class="btn btn-primary mr-1">Resend code</button>
+
+                      </div>
+                      <div class = "loginfootertext mt-3">
+                        <a href="login.html" class="d-block mt-3 text-muted">Already have an account? Signup</a>
+
+                      </div>
+                    </div>
+                      <!-- <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign up</a> -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>

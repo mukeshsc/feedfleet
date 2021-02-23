@@ -1,0 +1,643 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%
+}
+
+#grad1 {
+  // background-color:  #fef9ff;
+  // background-image: linear-gradient(120deg, #e6dee1, #81D4FA)
+}
+
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 20px
+}
+
+#msform fieldset .form-card {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 20px 40px 30px 40px;
+  box-sizing: border-box;
+  width: 94%;
+  margin: 0 3% 20px 3%;
+  position: relative
+
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 20px;
+  position: relative
+
+}
+
+#msform fieldset:not(:first-of-type) {
+  display: none
+}
+
+#msform fieldset .form-card {
+  text-align: left;
+  color: #9E9E9E
+}
+
+#msform input,
+#msform textarea {
+  padding: 0px 8px 4px 8px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0px;
+  margin-bottom: 25px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Overpass", sans-serif;
+  color: #2C3E50;
+  font-size: 16px;
+  letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none;
+  font-weight: bold;
+  border-bottom: 2px solid skyblue;
+  outline-width: 0
+}
+
+#msform .action-button {
+  width: 100px;
+  background: skyblue;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+}
+
+#msform .action-button-previous {
+  width: 100px;
+  background: #616161;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 2px 5px 3px 5px;
+  margin: 2px
+}
+
+select.list-dt:focus {
+  border-bottom: 2px solid skyblue
+}
+
+.card {
+  z-index: 0;
+  border: none;
+  border-radius: 0.5rem;
+  position: relative
+}
+
+.fs-title {
+  font-size: 25px;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left
+}
+
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: lightgrey
+}
+
+#progressbar .active {
+  color: #000000
+}
+
+#progressbar li {
+  list-style-type: none;
+  font-size: 12px;
+  width: 25%;
+  float: left;
+  position: relative
+}
+
+#progressbar #account:before {
+  font-family: "Overpass", sans-serif;
+  content: "\f023"
+}
+
+#progressbar #personal:before {
+  font-family: "Overpass", sans-serif;
+  content: "\f007"
+}
+
+#progressbar #payment:before {
+  font-family: "Overpass", sans-serif;
+  content: "\f09d"
+}
+
+#progressbar #confirm:before {
+  font-family: "Overpass", sans-serif;
+  content: "\f00c"
+}
+
+#progressbar li:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 18px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px
+}
+
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: skyblue
+}
+
+.radio-group {
+  position: relative;
+  margin-bottom: 25px
+}
+
+.radio {
+  display: inline-block;
+  width: 204;
+  height: 104;
+  border-radius: 0;
+  background: lightblue;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 8px 2px
+}
+
+.radio:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+  width: 100%;
+  object-fit: cover
+}
+.ban1
+{
+  width: 100% !important;
+}
+.fs-title1{
+  text-align: center;
+}
+.fs-title
+{
+  font-family: "Overpass", sans-serif;
+}
+.ban2
+{
+  width: 100% !important;
+}
+.imgpro{
+  height: 162px;
+  border-radius: 100px !important;
+}
+.btn-floating
+{
+
+}
+.button {
+  background-color: #cdd6db;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button .button5
+{
+  height: 5px;
+  border-radius: 42px;
+  padding: 11px 16px;
+  border-radius: 50px;
+}
+.searchButton {
+  height: 31px;
+  width: 33px;
+  cursor: pointer;
+  border: none;
+  background-color: #f2f2f2;
+}
+.bcontent {
+  margin-top: 10px;
+}
+.bi .bi-shield-fill-plus
+{
+background-color: black;
+}
+.card22{
+  background-color: rgb(173, 216, 214);
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.next{
+  margin: 5px;
+  background: skyblue;
+}
+div.relative {
+  position: relative;
+  border: 3px solid #ffffff;
+
+}
+div.absolute {
+  position: absolute;
+  top: 270px;
+  right: 370px;
+  width: 200px;
+  height: 100px;
+  // border: 3px solid #fbfcfb;
+
+}
+.card-img12
+{
+  border-radius: 104px;
+  width: 131px;
+  height: 124px;
+}
+// .fa .fa-edit
+// {
+//   right: 200px;
+// }
+.searchButton{
+  border-radius: 60px;
+  border: 2px solid #b5b1b1;
+  right: 200px;
+  margin: 36% 58px 4px 0;
+  z-index: 1;
+}
+
+
+
+.main-wrapper .page-wrapper .page-content {
+padding: 5px;
+margin-top:20;
+}
+
+// .searchButton11
+// {
+//   border-radius: 60px;
+//   border: 2px solid #b5b1b1;
+//   right: 100px;
+//   margin: 50% 58px 9px 0;
+//   z-index: 1;
+// }
+
+.searchButton11{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 28px;
+    width: 28px;
+    border-radius: 12px;
+}
+.logo
+{
+  position: absolute;
+  right: 75px;
+  bottom: 35px;
+
+}
+.logo11{
+    height: 140px;
+    width: 140px;
+    border-radius: 80px;
+    margin: 10px;
+}
+.textarea{
+  width: 65%;
+}
+.searchButton88{
+  position: absolute;
+  bottom: 0;
+  border-radius: 12px;
+  right: 55px;
+  height: 28px;
+  width: 28px;
+  border-radius: 12px;
+}
+.lightbtn {
+  position: absolute;
+  width: 90px;
+  height: 30px;
+    bottom: 450;
+}
+.lightbtn22
+
+{ position: absolute;
+  width: 90px;
+  height: 30px;
+  right: 800px;
+  bottom: 300;
+}
+// .containercheck
+// {
+//   position: absolute;
+// bottom: 20px;
+// left: 300px
+
+// }
+// font-family: "Overpass", sans-serif;
+.fs-title
+{
+  font-family: "Overpass", sans-serif;
+
+  font-size: 20px;
+  font-weight: 550;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+// .checkbox11{
+//   height: 3px;
+// }
+
+// .namelogo{
+//   position: absolute;
+//   bottom: 150px;
+//   margin: 1px;
+// }
+// .namelg
+// {
+//   font-size: 1.2rem
+// }
+// .modal-footer {
+//   position: absolute;
+//   margin: 27% 0 0 0;
+// }
+
+.modal-header {
+  padding: 7px;
+
+}
+input[type="file"] {
+  background: lightslategrey;
+}
+
+//    .bor {
+//     border-style: outset;
+//     padding: 20px 0 0 28px;
+//     margin: 0 0 0 32px;
+//     width: 94%;
+// }
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 4px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button2 {background-color: #13a3d9;} /* Blue */
+.button1 {background-color: lightslategrey;}
+
+.url {
+  width: 100%;
+  position: relative;
+}
+button.btn.btn-dark {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+
+
+
+
+// .fa {
+//   padding: 11px;
+//   font-size: 30px;
+//   width: 50px;
+//   text-align: center;
+//   text-decoration: none;
+//   margin: 5px 2px;
+// }
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  padding: 11px 15px 12px 14px;
+  border-radius: 50%;
+  margin: 51px 5px 9px 11px;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+  border-radius: 50%;
+  padding: 11px;
+  margin: 0 5px 5px 0px;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  margin: 0 5px 5px 0px;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+  border-radius: 50%;
+  margin: 0 5px 5px 0px;
+  padding: 11px;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+  border-radius: 50%;
+  margin: 0 5px 5px 0px;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+  margin: 0 5px 5px 0px;
+  border-radius: 50%;
+}
+.button.socialicons.fa.fa-envelope{
+  border-radius: 50%;
+  background: #dd4b39;
+  margin: 0 5px 5px 0px;
+
+}
+
+
+
+
+.err{
+  border-radius: 100%;
+  background: #dd4b39;
+  color: white;
+  margin: 0 5px 5px 0px;
+  border: none;
+  padding: 11px;
+  width: 40px;
+  height: 38px;
+
+
+}
+.err1
+{
+  border-radius: 50%;
+  background: #39dd47;
+  color: white;
+  margin: 0 5px 5px 0px;
+  border: none;
+  padding: 11px;
+  width: 40px;
+  height: 38px;
+
+
+}
+.err2
+
+{
+  border-radius: 50%;
+  background: #bd0725;
+  margin: 0 5px 5px 0px;
+  color: white;
+  border: none;
+  padding: 11px;
+  width: 40px;
+  height: 38px;
+
+}
+
+.col-md-4
+{
+  position: relative;
+}
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+
+button.socialicons.fa.fa-whatsapp.err1 {
+  padding: 6px 5px 8px 5px;
+}
+button.socialicons.fa.fa-link.err2 {
+  padding: 6px 5px 8px 5px;
+}
+
+p.item {
+    border: 2px solid black;
+    width: 77%;
+    height: 39px;
+    font-size: 19px;
+    border-radius: 15px;
+    box-shadow: 7px 5px 20px 0 #0000000f;
+    padding: 2px 0 0 10px;
+}
+button.av {
+  margin: 1px 0 10px 0;
+}
+button.backBtn {
+  float: right;
+  margin: 0 32px 5px 0;
+}
+ 

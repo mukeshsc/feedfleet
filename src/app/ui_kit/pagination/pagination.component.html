@@ -1,0 +1,246 @@
+
+	<div class="main-wrapper">
+
+
+    <nav class="settings-sidebar">
+      <div class="sidebar-body">
+        <a href="pagination.html#" class="settings-sidebar-toggler">
+          <i data-feather="settings"></i>
+        </a>
+        <h6 class="text-muted">Sidebar:</h6>
+        <div class="form-group border-bottom">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight" value="sidebar-light" checked>
+              Light
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark">
+              Dark
+            </label>
+          </div>
+        </div>
+        <div class="theme-wrapper">
+          <h6 class="text-muted mb-2">Light Theme:</h6>
+          <a class="theme-item active" href="../../dashboard-one.html">
+            <img src="../../../assets/images/screenshots/light.jpg" alt="light theme">
+          </a>
+          <h6 class="text-muted mb-2">Dark Theme:</h6>
+          <a class="theme-item" href="../../../demo_2/dashboard-one.html">
+            <img src="../../../assets/images/screenshots/dark.jpg" alt="light theme">
+          </a>
+        </div>
+      </div>
+    </nav>
+		<!-- partial -->
+
+		<div class="page-wrapper">
+
+
+
+			<div class="page-content">
+				<div class="row">
+					<div class="col-xl-10 main-content pl-xl-4 pr-xl-5">
+						<h1 class="page-title">Pagination</h1>
+						<p class="lead">To indicate a series of related content exists across multiple pages. Read the <a href="https://getbootstrap.com/docs/4.3/components/pagination/" target="_blank">Official Bootstrap Documentation</a> for a full list of instructions and other options.</p>
+
+            <hr>
+
+						<h4 id="default">Basic example</h4>
+						<p class="mb-3">Pagination is built with list HTML elements so screen readers can announce the number of available links.</p>
+						<div class="example">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0">
+                  <li class="page-item"><a class="page-link" href="pagination.html#"><i data-feather="chevron-left"></i></a></li>
+                  <li class="page-item active"><a class="page-link" href="pagination.html#">1</a></li>
+                  <li class="page-item disabled"><a class="page-link" href="pagination.html#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#"><i data-feather="chevron-right"></i></a></li>
+                </ul>
+              </nav>
+						</div>
+						<figure class="highlight" id="Default">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-left"></i></a></li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-right"></i></a></li>
+  </ul>
+</nav></script></code></pre>
+							<button type="button" class="btn btn-clipboard" data-clipboard-target="#Default"><i data-feather="copy"></i></button>
+            </figure>
+
+            <hr>
+
+            <h4 id="sizing">Sizing</h4>
+						<p class="mb-3">Add <code>.pagination-lg</code> or <code>.pagination-sm</code> for additional sizes.</p>
+						<div class="example">
+              <ul class="pagination mb-0 pagination-lg">
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">
+                    1
+                    <span class="sr-only">(current)</span>
+                  </span>
+                </li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">2</a></li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+              </ul>
+						</div>
+						<figure class="highlight" id="Sizing">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-lg">
+  ...
+</ul></script></code></pre>
+							<button type="button" class="btn btn-clipboard" data-clipboard-target="#Sizing"><i data-feather="copy"></i></button>
+            </figure>
+            <div class="example">
+              <ul class="pagination mb-0 pagination-sm">
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">
+                    1
+                    <span class="sr-only">(current)</span>
+                  </span>
+                </li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">2</a></li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+              </ul>
+            </div>
+            <figure class="highlight" id="sizingSm">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-sm">
+  ...
+</ul></script></code></pre>
+              <button type="button" class="btn btn-clipboard" data-clipboard-target="#sizingSm"><i data-feather="copy"></i></button>
+            </figure>
+
+            <hr>
+
+            <h4 id="alignment">Alignment</h4>
+						<p class="mb-3">Change the alignment of pagination components with flexbox utilities.</p>
+						<div class="example">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0 justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="pagination.html#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="pagination.html#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+						</div>
+						<figure class="highlight" id="Alignment">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination justify-content-center">
+  ...
+</ul></script></code></pre>
+							<button type="button" class="btn btn-clipboard" data-clipboard-target="#Alignment"><i data-feather="copy"></i></button>
+            </figure>
+            <div class="example">
+              <ul class="pagination mb-0 justify-content-end">
+                <li class="page-item">
+                  <a class="page-link" href="pagination.html#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">1</a></li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">2</a></li>
+                <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="pagination.html#">Next</a>
+                </li>
+              </ul>
+            </div>
+            <figure class="highlight" id="alignmentEnd">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination justify-content-end">
+  ...
+</ul></script></code></pre>
+              <button type="button" class="btn btn-clipboard" data-clipboard-target="#alignmentEnd"><i data-feather="copy"></i></button>
+            </figure>
+
+            <hr>
+
+            <h4 id="seperated">Sperated</h4>
+						<p class="mb-3">Add calss <code>.pagination-separated</code>.</p>
+						<div class="example">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0 pagination-separated">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="pagination.html#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="pagination.html#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+						</div>
+						<figure class="highlight" id="Seperated">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-separated">
+  ...
+</ul></script></code></pre>
+							<button type="button" class="btn btn-clipboard" data-clipboard-target="#Seperated"><i data-feather="copy"></i></button>
+            </figure>
+
+            <hr>
+
+            <h4 id="rounded">Rounded</h4>
+						<p class="mb-3">Add calss <code>.pagination-rounded</code>.</p>
+						<div class="example">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0 pagination-rounded">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="pagination.html#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="pagination.html#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="pagination.html#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+						</div>
+						<figure class="highlight" id="Rounded">
+<pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-rounded">
+  ...
+</ul></script></code></pre>
+							<button type="button" class="btn btn-clipboard" data-clipboard-target="#Rounded"><i data-feather="copy"></i></button>
+            </figure>
+
+					</div>
+					<div class="col-xl-2 content-nav-wrapper">
+						<ul class="nav content-nav d-flex flex-column">
+							<li class="nav-item">
+								<a href="pagination.html#default" class="nav-link">Basic example</a>
+              </li>
+              <li class="nav-item">
+								<a href="pagination.html#sizing" class="nav-link">Sizing</a>
+              </li>
+              <li class="nav-item">
+								<a href="pagination.html#alignment" class="nav-link">Alignment</a>
+              </li>
+              <li class="nav-item">
+								<a href="pagination.html#seperated" class="nav-link">Seperated</a>
+              </li>
+              <li class="nav-item">
+								<a href="pagination.html#rounded" class="nav-link">Rounded</a>
+              </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- partial:../../partials/_footer.html -->
+			<footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
+				<p class="text-muted text-center text-md-left">Copyright © 2020 <a href="../../../../../index.html" target="_blank">NobleUI</a>. All rights reserved</p>
+				<p class="text-muted text-center text-md-left mb-0 d-none d-md-block">Handcrafted With <i class="mb-1 text-primary ml-1 icon-small" data-feather="heart"></i></p>
+			</footer>
+			<!-- partial -->
+
+		</div>
+	</div>

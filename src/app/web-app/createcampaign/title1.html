@@ -1,0 +1,247 @@
+<div class="main-wrapper">
+
+  <div class="page-wrapper">
+
+
+
+    <div class="page-content">
+
+
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+
+
+
+<h2 style="text-align:center">User Profile Card</h2>
+
+<div class="card">
+  <img src="../../assets/images/kapil.jpg" alt="John" style="width:100%">
+  <h1>kapil karda</h1>
+  <p class="title">CEO & Founder, Feedfleet</p>
+   <p>Harvard University</p>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+  </div>
+  <p><button>Contact</button></p>
+</div>
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+
+
+<h2>Create campaign<span class="badge badge-primary"></span></h2>
+<!-- <p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+
+<div class="container">
+  <form action="/action_page.php">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">campaign</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="firstname" placeholder="Enter title here">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">your Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="lastname" placeholder="Your name..">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Designation</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="lastname" placeholder="designation..">
+    </div>
+  </div>
+
+  <!-- <div class="row"> -->
+    <!-- <div class="col-25">
+      <label for="country">designation</label>
+    </div> -->
+    <!-- <div class="col-75">
+      <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+    </div> -->
+  <!-- </div> -->
+  <div class="row">
+    <div class="col-25">
+      <label for="subject">Subject</label>
+    </div>
+    <div class="col-75">
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    </div>
+  </div>
+
+  <div class ="promt-box-heading">
+   <h3><span>Message</span></h3>
+   <div class="add-multiple-box">
+   <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; addedfields('0')" class="btn delete-icon btn-primary"><i class="fa fa-plus"></i></button>
+   </div>
+  </div>
+  <div class="form-group mt-4 has-feedback" id="promtField">
+<div class="promt-box" id="addedfields0" style="padding:0px;">
+<textarea name="fieldvalue[]" placeholder="Enter Field Value" class="form-control" required="" data-bv-field="fieldvalue[]"></textarea><i class="form-control-feedback bv-no-label" data-bv-icon-for="fieldvalue[]" style="display: none;"></i>
+</div>
+<small class="help-block" data-bv-validator="notEmpty" data-bv-for="fieldvalue[]" data-bv-result="NOT_VALIDATED" style="display: none;">Prompt required</small>
+</div>
+
+
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
+
+
+  <div class=" mt-4">
+    <h3 style="font-size:15px;color:#24a2da;font-weight:700;padding-left:1%">
+    <span>LEAD MANAGEMENT</span>
+    </h3>
+    </div>
+<!--
+    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-selection__choice locked-tag" title="Name"><span class="select2-selection__choice__remove" role="presentation">×</span>Name</li><li class="select2-selection__choice locked-tag" title="Email"><span class="select2-selection__choice__remove" role="presentation">×</span>Email</li><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Designation</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="designation..">
+      </div>
+    </div>
+
+    <!-- <div class ="promt-box-heading">
+      <h3><span>Message</span></h3>
+      <div class="add-multiple-box">
+       <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; addedfields('0')" class="btn delete-icon btn-primary"><i class="fa fa-plus"></i></button>
+      </div>
+     </div> -->
+
+     <div class="row">
+      <div class="col-25">
+        <label for="lname">Designation</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="designation..">
+      </div>
+    </div>
+
+    <h4>Create <span class="badge badge-primary">Ratings</span></h4>
+
+  </form>
+ </div>
+ </div>
+ </div>
+</div>

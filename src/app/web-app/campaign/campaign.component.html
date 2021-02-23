@@ -1,0 +1,425 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<div class="main-wrapper" *ngIf="hideShow">
+  <div class="page-wrapper">
+    <div class="page-content">
+      <h3 class="ml-2">Review Campaign</h3>
+      <div class="row" *ngFor="let item of showData; let i = index">
+        <div class="col-md-4">
+          <div>
+            <p class="item mt-2 ml-2">{{ i }}. {{ item.your_name }}</p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-secondary av" (click)="showEdit(item)">
+            Edit
+          </button>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-wrapper">
+  <div class="page-wrapper">
+    <div class="page-content">
+      <!-- <button class="btn btn-warning backBtn" click="hideEdit()">back</button> -->
+      <div *ngIf="showHide" class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+          <div class="col">
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                      Choose a pic
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="file" (change)="fileChangeEvent($event)" />
+                    <image-cropper
+                      [imageChangedEvent]="imageChangedEvent"
+                      [maintainAspectRatio]="true"
+                      [aspectRatio]="4 / 3"
+                      format="png"
+                      (imageCropped)="imageCropped($event)"
+                      (imageLoaded)="imageLoaded(imageChangedEvent)"
+                      (cropperReady)="cropperReady()"
+                      (loadImageFailed)="loadImageFailed()"
+                    ></image-cropper>
+                    <img [src]="croppedImage" />
+                  </div>
+                  <div class="modal-body"></div>
+                  <div class="modal-body"></div>
+                  <div class="modal-body"></div>
+                  <div class="modal-body"></div>
+                  <div class="modal-body"></div>
+                  <div class="modal-body"></div>
+                  <div class="modal-footer">
+                    <button class="button button1" data-dismiss="modal">
+                      close
+                    </button>
+
+                    <button (click)="uploadpic()" class="button button2">
+                      save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="row">
+                <div class="col-md-12 mx-0">
+                  <form
+                    id="msform"
+                    [formGroup]="campaignForm"
+                    (ngSubmit)="onSubmit()"
+                  >
+                    <fieldset>
+                      <div class="form-card">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col">
+                              <h5 class="fs-title">CAMPAIGN of Test</h5>
+
+                              <div class="url">
+                                <input
+                                  class="form-control"
+                                  formControlName="url"
+                                  type="text"
+                                  #userinput
+                                  [ngClass]="{
+                                    'is-invalid': submitted && f.url.errors
+                                  }"
+                                />
+                                <div
+                                  *ngIf="submitted && f.url.errors"
+                                  class="invalid-feedback"
+                                >
+                                  <div *ngIf="f.url.errors.required">
+                                    url is required
+                                  </div>
+                                </div>
+
+                                <button
+                                  type="button"
+                                  (click)="copyInputMessage(userinput)"
+                                  class="btn btn-dark"
+                                >
+                                  Copy Url
+                                </button>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="text-right">
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
+                                <button
+                                  class="socialicons fa fa-envelope err"
+                                ></button>
+                                <button
+                                  class="socialicons fa fa-whatsapp err1"
+                                ></button>
+                                <button
+                                  class="socialicons fa fa-link err2"
+                                ></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h2 class="fs-title">CAMPAIGN</h2>
+                        <input
+                          type="text"
+                          formControlName="title"
+                          class="form-control"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.title.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.title.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.title.errors.required">
+                            Title is required
+                          </div>
+                        </div>
+
+                        <h2 class="fs-title">CUSTOMIZE YOUR PAGE</h2>
+                        <h2 class="fs-title"></h2>
+
+                        <div class="relative">
+                          <div *ngIf="data2 == ''">
+                            <img src="{{ imagecover }}" style="width: 100%" />
+                          </div>
+                          <!-- <div  *ngIf = "data2 != ''"><img class ="coverPhoto1" src="{{imageData}}{{this.data2}}" /></div> -->
+                          <button
+                            type="button"
+                            (click)="varify = 2"
+                            class="searchButton11"
+                            data-toggle="modal"
+                            data-target="#exampleModal"
+                          >
+                            <i class="fa fa-edit"></i>
+                          </button>
+
+                          <div class="absolute">
+                            <div class="row no-gutters">
+                              <div class="col">
+                                <!-- <img class="card-img12" src="{{item.photo}}" alt="Suresh Dasari Card"> -->
+                              </div>
+                              <button
+                                type="button"
+                                (click)="varify = 1"
+                                class="searchButton88"
+                                data-toggle="modal"
+                                data-target="#exampleModal"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-card">
+                          <div class="textarea">
+                            <h2 class="fs-title">Your Name</h2>
+
+                            <input
+                              type="text"
+                              formControlName="your_name"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.your_name.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.your_name.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.your_name.errors.required">
+                                yourname is required
+                              </div>
+                            </div>
+
+                            <h2 class="fs-title">Designation</h2>
+                            <input
+                              type="text"
+                              formControlName="designation"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.designation.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.designation.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.designation.errors.required">
+                                Designation is required
+                              </div>
+                            </div>
+                            <h2 class="fs-title"></h2>
+                          </div>
+
+                          <div class="logo">
+                            <div class="namelogo">
+                              <div class="namelg"><h4>Companey logo</h4></div>
+                            </div>
+                            <div>
+                              <!-- <img class ="logo11" src="{item.campaign_logo}}"> -->
+                            </div>
+                            <button
+                              type="button"
+                              (click)="varify = 3"
+                              class="searchButton88"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </div>
+                        </div>
+
+                        <div></div>
+                        <div class="form-card">
+                          <h2 class="fs-title">Message</h2>
+                          <input
+                            formControlName="description"
+                            class="form-control"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.description.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && f.description.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="f.description.errors.required">
+                              message is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-card">
+                          <h2 class="fs-title">prompt</h2>
+                          <div ng></div>
+                          <input
+                            formControlName="prompt"
+                            class="form-control"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.prompt.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && f.prompt.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="f.prompt.errors.required">
+                              prompt is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <ul id="progressbar"></ul>
+                        <div class="form-card">
+                          <h2 class="fs-title1">Lead Management</h2>
+                          <br />
+                          <h2 class="fs-title">Extra field for lead</h2>
+                          <br />
+                          <div *ngIf="loadContentnot">
+                            <input
+                              formControlName="extra_field"
+                              (click)="showcontent()"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.extra_field.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.extra_field.errors"
+                              class="invalid-feedback"
+                            >
+                              <!-- <div *ngIf="f.extra_field.errors.required">extra_field is required</div> -->
+                            </div>
+                          </div>
+                          <div *ngIf="loadContent">
+                            <ng-multiselect-dropdown
+                              #multiSelect
+                              [placeholder]="'Select feild'"
+                              [settings]="settings"
+                              [data]="data"
+                              [formControl]="p.name"
+                              [disabled]="false"
+                              (onFilterChange)="onFilterChange($event)"
+                              (onDropDownClose)="onDropDownClose($event)"
+                              (onSelect)="onItemSelect($event)"
+                              (onDeSelect)="onDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
+                              (onDeSelectAll)="onDeSelectAll($event)"
+                            >
+                            </ng-multiselect-dropdown>
+                            <!-- <span *ngIf="p?.name?.errors?.required" style="color: red;">
+                                                        field is required
+                                                      </span> -->
+                            <br /><br />
+                          </div>
+                          <h2 class="fs-title">Thank you message</h2>
+                          <input
+                            formControlName="thankyou_message"
+                            class="form-control"
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted && f.thankyou_message.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && f.thankyou_message.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="f.thankyou_message.errors.required">
+                              message is required
+                            </div>
+                          </div>
+                          <h2 class="fs-title">After thank you link</h2>
+                          <input
+                            formControlName="callback_link"
+                            class="form-control"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.callback_link.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && f.callback_link.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="f.callback_link.errors.required">
+                              link is required
+                            </div>
+                          </div>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col md-8">
+                                <div class="">
+                                  <h2 class="fs-title">
+                                    Do you want to give rating?
+                                  </h2>
+                                </div>
+                              </div>
+                             
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-primary mr-1">
+                            Register
+                          </button>
+                          <button
+                            class="btn btn-secondary"
+                            type="reset"
+                            (click)="onReset()"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

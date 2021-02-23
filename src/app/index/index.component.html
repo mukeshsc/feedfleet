@@ -1,0 +1,251 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="main-wrapper">
+  <div class="page-wrapper">
+    <div class="page-content">
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Choose a pic</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="file" (change)="fileChangeEvent($event)" />
+
+              <image-cropper
+                  [imageChangedEvent]="imageChangedEvent"
+                  [maintainAspectRatio]="true"
+                  [aspectRatio]="2 / 2"
+                  format="png"
+                  (imageCropped)="imageCropped($event)"
+                  (imageLoaded)="imageLoaded(imageChangedEvent)"
+                  (cropperReady)="cropperReady()"
+                  (loadImageFailed)="loadImageFailed()"
+              ></image-cropper>
+
+              <img [src]="croppedImage" />
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button class="button button1"data-dismiss="modal">close</button>
+              <button (click) = "uploadpic()"class="button button2">save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="container">
+<div class="row flex-lg-nowrap">
+  <div class="col">
+    <div class="row">
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="e-profile">
+              <div class="row">
+              </div>
+               <!-- <div class = "profileicon">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-cog" class="svg-inline--fa fa-user-cog fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M610.5 373.3c2.6-14.1 2.6-28.5 0-42.6l25.8-14.9c3-1.7 4.3-5.2 3.3-8.5-6.7-21.6-18.2-41.2-33.2-57.4-2.3-2.5-6-3.1-9-1.4l-25.8 14.9c-10.9-9.3-23.4-16.5-36.9-21.3v-29.8c0-3.4-2.4-6.4-5.7-7.1-22.3-5-45-4.8-66.2 0-3.3.7-5.7 3.7-5.7 7.1v29.8c-13.5 4.8-26 12-36.9 21.3l-25.8-14.9c-2.9-1.7-6.7-1.1-9 1.4-15 16.2-26.5 35.8-33.2 57.4-1 3.3.4 6.8 3.3 8.5l25.8 14.9c-2.6 14.1-2.6 28.5 0 42.6l-25.8 14.9c-3 1.7-4.3 5.2-3.3 8.5 6.7 21.6 18.2 41.1 33.2 57.4 2.3 2.5 6 3.1 9 1.4l25.8-14.9c10.9 9.3 23.4 16.5 36.9 21.3v29.8c0 3.4 2.4 6.4 5.7 7.1 22.3 5 45 4.8 66.2 0 3.3-.7 5.7-3.7 5.7-7.1v-29.8c13.5-4.8 26-12 36.9-21.3l25.8 14.9c2.9 1.7 6.7 1.1 9-1.4 15-16.2 26.5-35.8 33.2-57.4 1-3.3-.4-6.8-3.3-8.5l-25.8-14.9zM496 400.5c-26.8 0-48.5-21.8-48.5-48.5s21.8-48.5 48.5-48.5 48.5 21.8 48.5 48.5-21.7 48.5-48.5 48.5zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm201.2 226.5c-2.3-1.2-4.6-2.6-6.8-3.9l-7.9 4.6c-6 3.4-12.8 5.3-19.6 5.3-10.9 0-21.4-4.6-28.9-12.6-18.3-19.8-32.3-43.9-40.2-69.6-5.5-17.7 1.9-36.4 17.9-45.7l7.9-4.6c-.1-2.6-.1-5.2 0-7.8l-7.9-4.6c-16-9.2-23.4-28-17.9-45.7.9-2.9 2.2-5.8 3.2-8.7-3.8-.3-7.5-1.2-11.4-1.2h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c10.1 0 19.5-3.2 27.2-8.5-1.2-3.8-2-7.7-2-11.8v-9.2z"></path></svg>
+              </div> -->
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">Profile detail</a></li>
+              </ul>
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Full Name</label>
+                              <input type="text" formControlName="full_name" class="form-control ng-pristine ng-invalid is-invalid ng-touched" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }" />
+                              <div *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
+                                  <div *ngIf="f.full_name.errors.required">full_name is required</div>
+                                  </div>
+                            </div>
+                            <div class="form-group">
+                              <i class="fas fa-user-cog"></i>
+                              <label>DOB</label>
+                              <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                              <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                  <div *ngIf="f.dob.errors.required">dob is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Gender</label>
+                              <select name="cars" id="cars">
+                                <option value="volvo">male</option>
+                                <option value="saab">female</option>
+                              </select>
+                              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                                <div *ngIf="f.gender.errors.required">Title is required</div>
+                            </div>
+                          </div>
+                            <div class="countrydrop">
+                              <label for="cars">Country</label>
+                             <select name=" " id=" ">
+                                <option value="volvo">India</option>
+                                <option value="saab">Pakistan</option>
+                                <option value="opel">China</option>
+                                <option value="audi">Nepal</option>
+                              </select>
+                              <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                            <div *ngIf="f.country.errors.required">Title is required</div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Zip code</label>
+                              <input type="text" formControlName="zip_code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zip_code.errors }" />
+                              <div *ngIf="submitted && f.zip_code.errors" class="invalid-feedback">
+                                  <div *ngIf="f.zip_code.errors.required">zipcode is required</div>
+                              </div>
+                            </div>
+                            <div class="form-groupcompany">
+                              <h5>Company Information :</h5>
+                                <!-- <i class="fa fa-edit fa-lg" style="font-size: 2rem;" aria-hidden=" "></i> -->
+                            </div>
+                            <ul class="nav nav-tabs">
+                              <li class="nav-item"><a href="" class="active nav-link"></a></li>
+                            </ul>
+                            <div class="form-group">
+                              <label>Company Name</label>
+                              <input type="text" formControlName="company_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }" />
+                              <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
+                                  <div *ngIf="f.company_name.errors.required">companyname is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label> Company address</label>
+                              <input type="text" formControlName="company_address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.company_address.errors }" />
+                              <div *ngIf="submitted && f.company_address.errors" class="invalid-feedback">
+                                  <div *ngIf="f.company_address.errors.required">companyaddress is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Company Contact no</label>
+                              <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNumber.errors.required">companycontact is required</div>
+                    </div>
+                     </div>
+                          </div>
+                          <div class="col">
+                              <div class="form-group">
+                                <label> Email addrees</label>
+                                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">email is required</div>
+                    </div>
+                        </div>
+                            <div class="form-group">
+                              <label>State</label>
+                              <select name="cars" id="cars">
+                                <option value="volvo">1</option>
+                                <option value="saab">2</option>
+                                <option value="opel">3</option>
+                                <option value="audi">4</option>
+                              </select>
+                              <div *ngIf="submitted && f.State.errors" class="invalid-feedback">
+                                <div *ngIf="f.State.errors.required">Title is required</div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Address</label>
+                              <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">address is required</div>
+                    </div>
+                       </div>
+                           <div class ="logo">
+                            <!-- https://www.feedfleet.com/uploads/ -->
+                            <div *ngIf = "data2 == ''">
+                              <img  class ="logo11" src="../../assets/images/newlogo.jpg"></div>
+                              <div  *ngIf =  "data2 != ''"> <img class ="logo12" src="{{imageData}}{{this.data2}}" /></div>
+                              <!-- <img id="myImg" [src]="https://www.feedfleet.com/uploads/" alt="Attached file"> -->
+                              <!-- <img id="myImg" class ="logo11" [src]="https://www.feedfleet.com/uploads/"> -->
+                            <button type="button" (click)="varify = 1" class="logoedit"data-toggle="modal" data-target="#exampleModal">
+                             <i class="fa fa-edit"></i></button>
+                         </div>
+                            <div class = "contain2">
+                            <div class="form-group">
+                              <label>Company Email Address</label>
+                              <input type="text" formControlName="company_email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.company_email.errors }" />
+                              <div *ngIf="submitted && f.company_email.errors" class="invalid-feedback">
+                                  <div *ngIf="f.company_email.errors.required">companyemailaddress is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Company Email web</label>
+                              <input type="text" formControlName="company_website" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.company_website.errors }" />
+                              <div *ngIf="submitted && f.company_website.errors" class="invalid-feedback">
+                                <div *ngIf="f.company_website.errors.required">comapnyemailweb is required</div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                          <div class="col mb-3">
+                            <div class="form-group">
+                              <div class="form-card">
+                                <h2 class="fs-title"></h2>
+                                 <div class="relative">
+                                  <div *ngIf = "data3 == ''">
+                                  <img class ="coverPhoto"  src="../../assets/images/Company-Profile.jpg" style="width:100%">
+                                   </div>
+                                   <div  *ngIf = "data3 != ''"><img class ="coverPhoto1" src="{{imageData}}{{this.data3}}" /></div>
+                                     <button type = "button" (click)="varify = 3" class="searchButton11" data-toggle="modal" data-target="#exampleModal">
+                                     <i class="fa fa-edit"></i></button>
+                                        <div class="absolute">
+                                         <div class="row no-gutters">
+                                         <div class="col">
+                                         <div *ngIf = "data1 == ''">
+                                        <img class="card-img12" src="../../assets/images/profilepic.jpg" alt="Suresh Dasari Card"></div>
+                                        <div  *ngIf = "data1 != ''"> <img class="card-img13"src="{{imageData}}{{this.data1}}" /></div>
+                                        </div>
+                                        <button type = "button" (click)="varify = 2" class="searchButton88"data-toggle="modal" data-target="#exampleModal">
+                                         <i class="fa fa-edit"></i></button>
+                                     </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="text-center">
+                       <button class="btn btn-primary mr-1">Register</button>
+                    </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+

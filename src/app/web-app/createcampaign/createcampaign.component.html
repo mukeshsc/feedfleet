@@ -1,0 +1,491 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Choose a pic</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="file" (change)="fileChangeEvent($event)" />
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="4 / 3"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded(imageChangedEvent)"
+          (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+        <img [src]="croppedImage" />
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-body"></div>
+      <div class="modal-body"></div>
+      <div class="modal-body"></div>
+      <div class="modal-body"></div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button class="button button1" data-dismiss="modal">close</button>
+        <button (click)="uploadpic()" class="button button2">save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-wrapper">
+  <div class="page-wrapper">
+    <div class="page-content">
+      <div class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+          <div class="col">
+            <div class="card">
+              <form
+                id="msform"
+                [formGroup]="registerForm"
+                (ngSubmit)="onSubmit()"
+              >
+                <div class="row">
+                  <div class="col-md-12 mx-0">
+                    <div [ngSwitch]="index">
+                      <div *ngSwitchCase="'0'">
+                        <ul id="progressbar">
+                          <li class="active" id="account">
+                            <strong>Step 1</strong>
+                          </li>
+                          <li id="personal"><strong>Step 2</strong></li>
+                          <li id="payment"><strong>Step 3</strong></li>
+                          <li id="confirm"><strong>Step 4</strong></li>
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                          <div class="form-card">
+                            <h2 class="fs-title">CAMPAIGN</h2>
+                            <input
+                              type="text"
+                              formControlName="title"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.title.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.title.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.title.errors.required">
+                                title is required
+                              </div>
+                            </div>
+                            <h2 class="fs-title">CUSTOMIZE YOUR PAGE</h2>
+                            <h2 class="fs-title"></h2>
+                            <div class="porel">
+                              <div *ngIf="data1 == ''">
+                                <img
+                                  src="https://www.feedfleet.com/uploads/20201001121352.png"
+                                  style="width: 100%"
+                                />
+                              </div>
+                              <div *ngIf="data1 != ''">
+                                <img class="coverpic1" src="{{ this.data1 }}" />
+                              </div>
+
+                              <!-- Button trigger modal -->
+                              <button
+                                type="button"
+                                (click)="varify = 2"
+                                class="searchButton11"
+                                data-toggle="modal"
+                                data-target="#exampleModal"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <div class="pos">
+                                <div class="row no-gutters">
+                                  <div class="col">
+                                    <!-- <button class="searchButton11">
+                                                                  <i class="fa fa-edit"></i></button> -->
+
+                                    <div *ngIf="data2 == ''">
+                                      <img
+                                        class="card-img12"
+                                        src="https://www.feedfleet.com/uploads/20201001121412.png"
+                                        alt="Suresh Dasari Card"
+                                      />
+                                    </div>
+                                    <div *ngIf="data2 != ''">
+                                      <img
+                                        class="card-img12"
+                                        src="{{ this.data2 }}"
+                                      />
+                                    </div>
+                                  </div>
+                                  <button
+                                    type="button"
+                                    (click)="varify = 1"
+                                    class="searchButton88"
+                                    data-toggle="modal"
+                                    data-target="#exampleModal"
+                                  >
+                                    <i class="fa fa-edit"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container1">
+                            <div class="row">
+                              <div class="col-sm"></div>
+                              <div class="col-sm">
+                                <div class="container bcontent">
+                                  <hr />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm"></div>
+                          <h2 class="fs-title"></h2>
+                          <button (click)="next()" class="next">
+                            <a>Next &raquo;</a>
+                          </button>
+                        </fieldset>
+                      </div>
+                      <div *ngSwitchCase="'1'">
+                        <ul id="progressbar">
+                          <li class="active" id="account">
+                            <strong>Step 1</strong>
+                          </li>
+                          <li class="active" id="account">
+                            <strong>Step 2</strong>
+                          </li>
+                          <li id="payment"><strong>Step 3</strong></li>
+                          <li id="confirm"><strong>Step 4</strong></li>
+                        </ul>
+                        <fieldset>
+                          <div class="form-card">
+                            <div class="textarea">
+                              <h2 class="fs-title">Your Name</h2>
+                              <input
+                                type="text"
+                                formControlName="your_name"
+                                class="form-control"
+                                [ngClass]="{
+                                  'is-invalid': submitted && f.your_name.errors
+                                }"
+                              />
+                              <div
+                                *ngIf="submitted && f.your_name.errors"
+                                class="invalid-feedback"
+                              >
+                                <div *ngIf="f.your_name.errors.required">
+                                  yourname is required
+                                </div>
+                              </div>
+                              <h2 class="fs-title">Designation</h2>
+                              <input
+                                type="text"
+                                formControlName="designation"
+                                class="form-control"
+                                [ngClass]="{
+                                  'is-invalid':
+                                    submitted && f.designation.errors
+                                }"
+                              />
+                              <div
+                                *ngIf="submitted && f.designation.errors"
+                                class="invalid-feedback"
+                              >
+                                <div *ngIf="f.designation.errors.required">
+                                  Designation is required
+                                </div>
+                              </div>
+                              <h2 class="fs-title"></h2>
+                            </div>
+                            <div class="logo">
+                              <h4>Companey logo</h4>
+
+                              <div *ngIf="data3 == ''">
+                                <img
+                                  class="logo11"
+                                  src="https://www.feedfleet.com/uploads/20201001121334.png"
+                                />
+                              </div>
+                              <div *ngIf="data3 != ''">
+                                <img class="logo11" src="{{ this.data3 }}" />
+                              </div>
+
+                              <button
+                                type="button"
+                                (click)="varify = 3"
+                                class="searchButton88"
+                                data-toggle="modal"
+                                data-target="#exampleModal"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <!-- <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                 -->
+                          <button (click)="previw()" class="previous">
+                            <a>&laquo; Previous</a>
+                          </button>
+                          <button (click)="next()" class="next">
+                            <a>Next &raquo;</a>
+                          </button>
+                        </fieldset>
+                      </div>
+                      <div *ngSwitchCase="'2'">
+                        <ul id="progressbar">
+                          <li class="active" id="account">
+                            <strong>Step 1</strong>
+                          </li>
+                          <li class="active" id="account">
+                            <strong>Step 2</strong>
+                          </li>
+                          <li class="active" id="account">
+                            <strong>Step 3</strong>
+                          </li>
+                          <li id="confirm"><strong>Step 4</strong></li>
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                          <div class="form-card">
+                            <h2 class="fs-title">Message</h2>
+                            <input
+                              formControlName="description"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.description.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.description.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.description.errors.required">
+                                Message is required
+                              </div>
+                            </div>
+                            <h2 class="fs-title"></h2>
+                          </div>
+                          <button (click)="previw()" class="previous">
+                            <a>&laquo; Previous</a>
+                          </button>
+                          <button (click)="next()" class="next">
+                            <a>Next &raquo;</a>
+                          </button>
+                        </fieldset>
+                      </div>
+                      <div *ngSwitchCase="'3'">
+                        <ul id="progressbar">
+                          <li class="active" id="account">
+                            <strong>Step 1</strong>
+                          </li>
+                          <li class="active" id="account">
+                            <strong>Step 2</strong>
+                          </li>
+                          <li class="active" id="account">
+                            <strong>Step 3</strong>
+                          </li>
+                          <li class="active" id="account">
+                            <strong>Step 4</strong>
+                          </li>
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                          <h2 class="text-left">Prompt</h2>
+                          <button (click)="addtext($event)">add prompt</button>
+                          <div
+                            formArrayName="prompt_value"
+                            *ngFor="
+                              let prop of prompt_value.controls;
+                              let i = index
+                            "
+                          >
+                            <input type="text" [formControlName]="i" />
+                          </div>
+
+                          <button (click)="previw()" class="previous">
+                            <a>&laquo; Previous</a>
+                          </button>
+                          <button (click)="next()" class="next">
+                            <a>Next &raquo;</a>
+                          </button>
+                        </fieldset>
+                        <!--
+                                              <div formArrayName="Prompt">
+                                                <h2 class="fs-title">Prompt</h2>
+
+                                                <div class="row" *ngFor="let item of text;let i = index;">
+                                                  <div class="col-md-10">
+                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                  </div>
+                                                  <div class ="text">
+                                                    <div [hidden]="text.valid || text.untouched">
+                                                    </div>
+                                                  <div >
+                                                    <div *ngIf="i == 0" (click)="addContact()" class="btn btn-lg" style="background-color:transparent;">
+                                                      <i class="fa fa-pencil"></i>
+                                                     </div>
+                                                      <div *ngIf="i > 0" (click)="remContact(1)"
+
+                                                       class='btn btn-lg ' style='background-color:transparent;'>
+                                                   <div style='text-align:center;'><i class="fa fa-times"></i></div>
+                                                </div>
+                                                <div *ngIf="submitted && f.prompt_value.errors" class="invalid-feedback">
+                                                  <div *ngIf="f.prompt_value.errors.required">prompt is required</div>
+                                              </div>
+                                              </div>
+                                            </div>
+                                            </div>
+                                                <h2 class="fs-title"></h2>
+                                            </div> -->
+                      </div>
+                      <div *ngSwitchCase="'4'">
+                        <ul id="progressbar">
+                          <li class="active" id="account">
+                            <strong>Step 5</strong>
+                          </li>
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                          <div class="form-card">
+                            <div class="kjh"></div>
+                            <h2 class="fs-title1">Lead Management</h2>
+                            <h2 class="fs-title">Extra feild for lead</h2>
+
+                            <div *ngIf="loadContent">
+                              <ng-multiselect-dropdown
+                                #multiSelect
+                                [placeholder]="'Select feild'"
+                                [settings]="settings"
+                                [data]="dropdata"
+                                [formControl]="p.name"
+                                [disabled]="false"
+                                (onFilterChange)="onFilterChange($event)"
+                                (onDropDownClose)="onDropDownClose($event)"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="onDeSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                (onDeSelectAll)="onDeSelectAll($event)"
+                              >
+                              </ng-multiselect-dropdown>
+                              <span
+                                *ngIf="p?.name?.errors?.required"
+                                style="color: red"
+                              >
+                                field is required
+                              </span>
+                              <br /><br />
+                              <!-- <input type="submit" value="Submit"> | <input type="reset" value="Reset"> -->
+                            </div>
+
+                            <h2 class="fs-title">Thank you message</h2>
+                            <input
+                              type="text"
+                              placeholder="Thank you message"
+                              formControlName="thankyou_message"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid':
+                                  submitted && f.thankyou_message.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.thankyou_message.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.thankyou_message.errors.required">
+                                thankyou message is required
+                              </div>
+                            </div>
+                            <h2 class="fs-title">After thank you link</h2>
+                            <input
+                              type="text"
+                              placeholder="enter link"
+                              formControlName="callback_link"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid':
+                                  submitted && f.callback_link.errors
+                              }"
+                            />
+                            <div
+                              *ngIf="submitted && f.callback_link.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.callback_link.errors.required">
+                                callback link is required
+                              </div>
+                            </div>
+                            <div class="">
+                              <h2 class="fs-title">
+                                Do you want to give rating ?
+                              </h2>
+                              <div>
+                               
+                                <form name="myForm" ng-controller="ExampleController">
+                                  <label>Value1:
+                                    <input type="checkbox" (click) = "mufn($event)"ng-model="checkboxModel.value1">
+                                  </label><br/>
+                                 </form>
+
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-primary mr-1">
+                              Register
+                            </button>
+                            <button
+                              class="btn btn-secondary"
+                              type="reset"
+                              (click)="onReset()"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col md-8"></div>
+  </div>
+</div>
