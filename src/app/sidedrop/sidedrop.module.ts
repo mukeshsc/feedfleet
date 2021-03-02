@@ -12,6 +12,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { ViewTicketComponent } from './view-ticket/view-ticket.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ import { NgxEditorModule } from 'ngx-editor';
     FormsModule,
     ImageCropperModule,
     FontAwesomeModule,
-
+    RouterModule,
     NgxEditorModule
   ],
   declarations: [
@@ -32,6 +34,7 @@ import { NgxEditorModule } from 'ngx-editor';
     SupportComponent,
     TransictionhistoryComponent,
     AddTicketComponent,
+    ViewTicketComponent
     
   ],
   bootstrap: [AppComponent]

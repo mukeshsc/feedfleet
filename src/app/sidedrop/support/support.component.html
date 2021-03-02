@@ -33,38 +33,16 @@
                 <th style="width:10%;">Last Reply</th>
                 <th style="width:10%;">Actions</th>
               </tr>
-              <tr>
-                <td>Alfreds </td>
-                <td>Germany</td>
-                <td>Alreds Futterkiste</td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Germany</td>
+              <tr *ngFor="let data of list">
+                <td>{{data.title}}</td>
+                <td>{{data.priority}}</td>
+                <td>{{data.status}}</td>
+                <td>{{data.cat_name}}</td>
+                <td>{{data.last_reply_timestamp}}</td>
+                <td><a class="btn btn-sm btn-primary"[routerLink]="['/module3/viewticket']" routerLinkActive="active"><i  class="fa fa-reply" aria-hidden="true"></i></a></td>
               </tr>
-              <tr>
-                <td>Berglunds snabbkop</td>
-                <td>Sweden</td>
-                <td>Alfeds  </td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Germny</td>
-              </tr>
-              <tr>
-                <td>Island Trading</td>
-                <td>UK</td>
-                <td>Alfreds  </td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Germany</td>
-              </tr>
-              <tr>
-                <td>Koniglich Essen</td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Germany</td>
-                <td>Alfreds</td>
-                <td>Gerany</td>
-              </tr>
+              
+              
             </table>
           <div class="container">
             <div class="row">
@@ -90,3 +68,4 @@
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>

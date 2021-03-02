@@ -172,7 +172,6 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     ImageCropperModule,
     BrowserAnimationsModule,
     BrowserModule,
-    SidedropModule,
     AppRoutingModule,
     WebAppModule,
     HammerModule,

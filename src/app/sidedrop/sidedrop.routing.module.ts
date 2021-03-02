@@ -12,6 +12,7 @@ import { SupportComponent } from './support/support.component';
 import { TransictionhistoryComponent } from './transictionhistory/transictionhistory.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { AuthGuardService } from '../auth-service.service';
+import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 const routes: Routes = [
 { path: 'profile', component: ProfileComponent,canActivate: [AuthGuardService] },
 { path: 'editprofile', component: EditprofileComponent,canActivate: [AuthGuardService] },
@@ -19,6 +20,7 @@ const routes: Routes = [
 { path: 'transictionhistory', component: TransictionhistoryComponent,canActivate: [AuthGuardService] },
 { path: 'support', component: SupportComponent,canActivate: [AuthGuardService] },
 {path: 'addticket', component: AddTicketComponent,canActivate: [AuthGuardService] },
+{path: 'viewticket', component: ViewTicketComponent,canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

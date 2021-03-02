@@ -1,23 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ServiceService } from 'src/app/service.service';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-support',
   templateUrl: './support.component.html',
   styleUrls: ['./support.component.scss']
 })
 export class SupportComponent implements OnInit {
-
+  
+ 
+  res : any;
+  list : any [];
+  
+  formData = new FormData();
+  registerForm: FormGroup;
   constructor(
-    private router : Router
+    private router : Router,public _service:ServiceService,private https: HttpClient,private formBuilder: FormBuilder
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  this.ticketDetails();
+  }
+
+  ticketDetails(){
+
+    this.formData.append("user_id",localStorage.getItem('user_id'));
+    this._service.loadticket(this.formData).subscribe(response => {
+      this.res = response.result;
+      this.list =  this.res;
+      console.log(this.res)
+      
+     
+   
+      
+     
+
+    })
+  }
 
     goToPage(){
       this.router.navigateByUrl('module3/addticket');
+      
 
   }
+  
+
   //   search() {
   //   // Declare variables
   //   var input, filter, table, tr, td, i, txtValue;

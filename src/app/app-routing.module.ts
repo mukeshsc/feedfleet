@@ -143,6 +143,7 @@ const routes: Routes = [
  {path: 'transictionhistory', component: TransictionhistoryComponent },
  {path: 'support', component: SupportComponent },
  {path: 'changepassword', component: ChangepasswordComponent },
+ 
 ];
 
 @NgModule({

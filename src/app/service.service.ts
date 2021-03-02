@@ -143,6 +143,14 @@ export class ServiceService{
     return this.https.get(environment.apiPath + '/loadTicketCategory').pipe(map(res => <any>res));
   }
 
+  loadticket(value){
+	let headers = new HttpHeaders({
+		'Content-Type': 'application/json'
+	});
+		let options = { headers: headers, method: 'post' };
+return this.https.post(environment.apiPath + '/loadTickets',value).pipe(map(res => <any>res));
+}
+
 }
 
 

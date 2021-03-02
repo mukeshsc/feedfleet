@@ -12,7 +12,10 @@ import { ServiceService } from 'src/app/service.service';
 export class AddTicketComponent implements OnInit{
   index:any= 0;
   list : any;
+  category : any [];
   list1 : any;
+  formData = new FormData();
+  res:any;
   registerForm: FormGroup;
   submitted = false;filearray
   text:any= [null];
@@ -28,36 +31,57 @@ export class AddTicketComponent implements OnInit{
     ['text_color', 'background_color'],
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
-
-
+  
   ngOnInit(): void {
     this.ticketcategory()
     this.registerForm = this.formBuilder.group({
-
+     
       title: ['', Validators.required],
       priority: ['', Validators.required],
       catid: ['', Validators.required],
       ticket_body: ['', Validators.required],
       user_file : []
+      
 
   }, {
 
   });
     this.editor = new Editor();
-    console.log(this.editor);
+    
   }
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-
+    
     // stop here if form is invalid
-    // if (this.registerForm.invalid) {
-    //     return;
-    // }
+    if (this.registerForm.invalid) {
+        return;  
+    }else{
+      this.formData.append("user_id",localStorage.getItem('user_id'));
+      this.formData.append('title', this.registerForm.get('title').value);
+      this.formData.append('priority', this.registerForm.get('priority').value);
+      this.formData.append('catid', this.registerForm.get('catid').value);
+      this.formData.append('ticket_body', this.registerForm.get('ticket_body').value);
+      this.formData.append('user_file', this.registerForm.get('user_file').value);
+      this._service.createticket(this.formData).subscribe(response => {
+        this.res = response;
+        
+       
+        console.log(this.res )
+     
+        
+       
+  
+      })
+      console.log(this.registerForm )
+      console.log("successfull submited")
+      
+    }
 
     // display form values on success
-
+   
+    
 }
   ngOnDestroy(): void {
     this.editor.destroy();
@@ -66,12 +90,18 @@ export class AddTicketComponent implements OnInit{
 
 
     this._service.loadTicketCategory().subscribe(response => {
-      this.list = response;
-      this.list1 = response.result.name;
+      this.list = response.result;
+      this.category =  this.list;
+     
+      console.log(this.list )
+   
+      
      
 
     })
   }
+  
+
 
   constructor(private formBuilder: FormBuilder,private https: HttpClient, public _service:ServiceService) { }
 
@@ -93,7 +123,7 @@ export class AddTicketComponent implements OnInit{
      console.log(this.inputfile)
       //  this.filearray = event.target.file
   }
-
+  
 
 }
 
