@@ -20,7 +20,7 @@ const routes: Routes = [
 { path: 'transictionhistory', component: TransictionhistoryComponent,canActivate: [AuthGuardService] },
 { path: 'support', component: SupportComponent,canActivate: [AuthGuardService] },
 {path: 'addticket', component: AddTicketComponent,canActivate: [AuthGuardService] },
-{path: 'viewticket', component: ViewTicketComponent,canActivate: [AuthGuardService] },
+{path: 'viewticket/:id', component: ViewTicketComponent,canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

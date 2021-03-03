@@ -13,9 +13,13 @@ export class SupportComponent implements OnInit {
  
   res : any;
   list : any [];
+  showHide: boolean = false;
+  hideShow: boolean = true;
   
   formData = new FormData();
   registerForm: FormGroup;
+  selectedUser: any;
+  
   constructor(
     private router : Router,public _service:ServiceService,private https: HttpClient,private formBuilder: FormBuilder
   ) { }
@@ -23,7 +27,7 @@ export class SupportComponent implements OnInit {
   ngOnInit(): void {
   this.ticketDetails();
   }
-
+  
   ticketDetails(){
 
     this.formData.append("user_id",localStorage.getItem('user_id'));
@@ -39,6 +43,19 @@ export class SupportComponent implements OnInit {
 
     })
   }
+ 
+  RowSelected(u:any){
+    
+     this.hideShow = false;
+     this.showHide = true;
+    this.selectedUser=u;
+    
+  console.log(this.selectedUser);
+  
+
+  
+  }
+  
 
     goToPage(){
       this.router.navigateByUrl('module3/addticket');

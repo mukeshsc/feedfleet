@@ -1,71 +1,164 @@
-
-<div class="main-wrapper">
+<div class="main-wrapper" *ngIf="hideShow">
   <div class="page-wrapper">
     <div class="page-content">
       <div class="card">
         <div class="card-body">
-          <div class = "ticketsvg">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ticket-alt" class="svg-inline--fa fa-ticket-alt fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M128 160h320v192H128V160zm400 96c0 26.51 21.49 48 48 48v96c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48v-96c26.51 0 48-21.49 48-48s-21.49-48-48-48v-96c0-26.51 21.49-48 48-48h480c26.51 0 48 21.49 48 48v96c-26.51 0-48 21.49-48 48zm-48-104c0-13.255-10.745-24-24-24H120c-13.255 0-24 10.745-24 24v208c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V152z"></path></svg>
-
+          <div class="ticketsvg">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="ticket-alt"
+              class="svg-inline--fa fa-ticket-alt fa-w-18"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M128 160h320v192H128V160zm400 96c0 26.51 21.49 48 48 48v96c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48v-96c26.51 0 48-21.49 48-48s-21.49-48-48-48v-96c0-26.51 21.49-48 48-48h480c26.51 0 48 21.49 48 48v96c-26.51 0-48 21.49-48 48zm-48-104c0-13.255-10.745-24-24-24H120c-13.255 0-24 10.745-24 24v208c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V152z"
+              ></path>
+            </svg>
           </div>
-           <h4 class = "ticket">Ticket List</h4>
-           <div class="text-right">
-            <button (click) = "goToPage()" type="button" class="btn btn-info su mb-3">Add new ticket</button>
+          <h4 class="ticket">Ticket List</h4>
+          <div class="text-right">
+            <button
+              (click)="goToPage()"
+              type="button"
+              class="btn btn-info su mb-3"
+            >
+              Add new ticket
+            </button>
           </div>
           <div class="row">
-          <!-- <div class="text-left"> -->
-          <p class = "showtxt"> Show Entries : </p>
-          <select  class = "showbar" name="cars" id="cars">
-            <option value="volvo">10</option>
-            <option value="saab">25</option>
-            <option value="opel">50</option>
-            <option value="audi">100</option>
-          </select>
-        <!-- </div> -->
-        </div>
-            <table id="myTable">
-              <!-- <input type="text" id="myInput" (keyup)="search()" placeholder="Search for names.."> -->
-              <tr class="header">
-                <th style="width:10%;">Title</th>
-                <th style="width:10%;">Priority</th>
-                <th style="width:10%;">Status</th>
-                <th style="width:10%;">Category</th>
-                <th style="width:10%;">Last Reply</th>
-                <th style="width:10%;">Actions</th>
-              </tr>
-              <tr *ngFor="let data of list">
-                <td>{{data.title}}</td>
-                <td>{{data.priority}}</td>
-                <td>{{data.status}}</td>
-                <td>{{data.cat_name}}</td>
-                <td>{{data.last_reply_timestamp}}</td>
-                <td><a class="btn btn-sm btn-primary"[routerLink]="['/module3/viewticket']" routerLinkActive="active"><i  class="fa fa-reply" aria-hidden="true"></i></a></td>
-              </tr>
-              
-              
-            </table>
+            <!-- <div class="text-left"> -->
+            <p class="showtxt">Show Entries :</p>
+            <select class="showbar" name="cars" id="cars">
+              <option value="volvo">10</option>
+              <option value="saab">25</option>
+              <option value="opel">50</option>
+              <option value="audi">100</option>
+            </select>
+            <!-- </div> -->
+          </div>
+          <table id="myTable">
+            <!-- <input type="text" id="myInput" (keyup)="search()" placeholder="Search for names.."> -->
+            <tr class="header">
+              <th style="width: 10%">Title</th>
+              <th style="width: 10%">Priority</th>
+              <th style="width: 10%">Status</th>
+              <th style="width: 10%">Category</th>
+              <th style="width: 10%">Last Reply</th>
+              <th style="width: 10%">Actions</th>
+            </tr>
+            <tr *ngFor="let data of list; let i = index">
+              <td>{{ data.title }}</td>
+              <td>{{ data.priority }}</td>
+              <td>{{ data.status }}</td>
+              <td>{{ data.cat_name }}</td>
+              <td>{{ data.last_reply_timestamp }}</td>
+              <td>
+                <a
+                  class="btn btn-sm btn-primary"
+                  routerLinkActive="active"
+                  (click)="RowSelected(data)"
+                  ><i class="fa fa-reply" aria-hidden="true"></i
+                ></a>
+              </td>
+            </tr>
+          </table>
           <div class="container">
             <div class="row">
               <div class="col">
                 <p class="text-left">Showing 0 to 0 of 0 entries</p>
               </div>
-              <div class="col"class="text-right">
-
+              <div class="col" class="text-right">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                   <label class="btn btn-outline-light clor">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Next
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option2"
+                      autocomplete="off"
+                    />
+                    Next
                   </label>
                   <label class="btn btn-outline-light clor">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> Previous
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option3"
+                      autocomplete="off"
+                    />
+                    Previous
                   </label>
                 </div>
               </div>
             </div>
-
-
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+
+
+<div class="main-wrapper" *ngIf="showHide">
+  <div class="page-wrapper">
+    <div class="page-content">
+      <div class="card" >
+        <div class="card-body">
+          <div class="ticketsvg">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="ticket-alt"
+              class="svg-inline--fa fa-ticket-alt fa-w-18"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+             
+            </svg>
+          </div>
+          <h4 class="ticket">Ticket Details</h4>
+         
+         
+          <table id="myTable">
+            <!-- <input type="text" id="myInput" (keyup)="search()" placeholder="Search for names.."> -->
+            <tr class="header">
+              <th style="width: 10%">Title</th>
+              <th style="width: 10%">Priority</th>
+              <th style="width: 10%">Status</th>
+              <th style="width: 10%">Category</th>
+              <th style="width: 10%">Last Reply</th>
+              
+            </tr>
+            <tr>
+              <td>{{ selectedUser.title }}</td>
+              <td>{{ selectedUser.priority }}</td>
+              <td>{{ selectedUser.status }}</td>
+              <td>{{ selectedUser.cat_name }}</td>
+              <td>{{ selectedUser.last_reply_timestamp }}</td>
+              
+            </tr>
+           
+          </table>
+          <div class="container">
+            <div class="row">
+              
+              <div class="col" class="text-right">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
