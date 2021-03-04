@@ -105,16 +105,12 @@
             <h6 clasa="attachtxt">Attach muliple File</h6>
             <!-- <div class="row" *ngFor="let item of text;let i = index;">  -->
             <div class="col-md-10">
-              <input
-                (change)="muliplefile($event)"
-                type="file"
-                formControlName="user_file"
-                class="form-control1"
-                id="customFile"
-                id="files"
-                name="files"
-                multiple
-              />
+              <input 
+              formControlName="user_file"
+              id="file" 
+              type="file" 
+              class="form-control"
+              (change)="onFileChange($event)">
               <div class="text">
                 <div>
                   <!-- <div *ngIf="i == 0" (click)="addContact()" class="btn btn-lg" style="background-color:transparent;">

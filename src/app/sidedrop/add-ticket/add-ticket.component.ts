@@ -14,11 +14,13 @@ export class AddTicketComponent implements OnInit{
   list : any;
   category : any [];
   list1 : any;
+
   formData = new FormData();
   res:any;
   registerForm: FormGroup;
   submitted = false;filearray
   text:any= [null];
+  user_file: any;
   inputfile : any =[''];
   editor: Editor;
   toolbar: Toolbar = [
@@ -40,7 +42,9 @@ export class AddTicketComponent implements OnInit{
       priority: ['', Validators.required],
       catid: ['', Validators.required],
       ticket_body: ['', Validators.required],
-      user_file : []
+      user_file : [''],
+      
+      
       
 
   }, {
@@ -109,20 +113,22 @@ export class AddTicketComponent implements OnInit{
   addContact(){
     this.text.push(null)
   }
+  onFileChange(event) {
+  
+    if (event.target.user_file.length > 0) {
+      const file = event.target.user_file[0];
+      this.registerForm.patchValue({
+        user_file : file
+      });
+    }
+  }
 
   //remove primary contact
   remContact(i){
     this.text.splice(i,1)
 
   }
-  muliplefile(event){
-     console.log(event)
-     console.log(event.target.files)
-     this.inputfile = event.target.files;
-     console.log(event.target)
-     console.log(this.inputfile)
-      //  this.filearray = event.target.file
-  }
+  
   
 
 }

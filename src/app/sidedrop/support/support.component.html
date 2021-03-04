@@ -31,14 +31,21 @@
             </button>
           </div>
           <div class="row">
-            <!-- <div class="text-left"> -->
-            <p class="showtxt">Show Entries :</p>
+            <div class="col-lg-6">
+              <p class="showtxt">Show Entries :</p>
             <select class="showbar" name="cars" id="cars">
               <option value="volvo">10</option>
               <option value="saab">25</option>
               <option value="opel">50</option>
               <option value="audi">100</option>
             </select>
+            </div>
+            <div class="col-lg-6">
+              <input  id="Search" type="text" placeholder="Search......." [(ngModel)]="str" (input)="onSearchClick()" > 
+            
+            </div>
+            <!-- <div class="text-left"> -->
+            
             <!-- </div> -->
           </div>
           <table id="myTable">
@@ -125,37 +132,63 @@
           <h4 class="ticket">Ticket Details</h4>
          
          
-          <table id="myTable">
-            <!-- <input type="text" id="myInput" (keyup)="search()" placeholder="Search for names.."> -->
-            <tr class="header">
-              <th style="width: 10%">Title</th>
-              <th style="width: 10%">Priority</th>
-              <th style="width: 10%">Status</th>
-              <th style="width: 10%">Category</th>
-              <th style="width: 10%">Last Reply</th>
-              
-            </tr>
-            <tr>
-              <td>{{ selectedUser.title }}</td>
-              <td>{{ selectedUser.priority }}</td>
-              <td>{{ selectedUser.status }}</td>
-              <td>{{ selectedUser.cat_name }}</td>
-              <td>{{ selectedUser.last_reply_timestamp }}</td>
-              
-            </tr>
-           
-          </table>
-          <div class="container">
-            <div class="row">
-              
-              <div class="col" class="text-right">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  
-                  
+          
+          
+            <div class="row"  id="tbox">
+              <div class="col-lg-12">
+                <div class="row" id="t_head">
+                  <div class="col-lg-12" >heading</div>
+                </div>
+                <div class="row" id="t_body">
+                  <div class="col-lg-12" >
+                    <div class="row" id="Ticket_Details">
+                       <div class="col-lg-12">
+                        <div class="row" id="ib">
+<div class="col-lg-12" id="">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticket Details</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">#</th>
+        <td>{{ selectedUser.ID }}</td>
+        <td>Client</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">Created</th>
+        <td>Jacob</td>
+        <td>Priority</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">Last Updated</th>
+        <td>Larry</td>
+        <td>Category</td>
+        <td>@twitter</td>
+      </tr>
+      <tr>
+        <th scope="row">Status</th>
+        <td>Larry</td>
+        <td>Closed Date</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+                        </div>
+                       </div>
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>

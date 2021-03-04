@@ -9,60 +9,66 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./support.component.scss']
 })
 export class SupportComponent implements OnInit {
-  
- 
-  res : any;
-  list : any [];
+  str:string = "";
+  res: any;
+  list: any[] = [];
   showHide: boolean = false;
   hideShow: boolean = true;
-  
+
   formData = new FormData();
   registerForm: FormGroup;
   selectedUser: any;
-  
+
   constructor(
-    private router : Router,public _service:ServiceService,private https: HttpClient,private formBuilder: FormBuilder
-  ) { }
+    private router: Router, public _service: ServiceService, private https: HttpClient, private formBuilder: FormBuilder
+  ) {
+    this.list=this.res;
+   }
 
   ngOnInit(): void {
-  this.ticketDetails();
+    this.ticketDetails();
   }
-  
-  ticketDetails(){
+  onSearchClick(){
+    this.list = this.res.filter((ticket) =>  {
+       return ticket.title.toLowerCase().indexOf(this.str.toLowerCase()) >=0;});
+ }
 
-    this.formData.append("user_id",localStorage.getItem('user_id'));
+  ticketDetails() {
+
+    this.formData.append("user_id", localStorage.getItem('user_id'));
     this._service.loadticket(this.formData).subscribe(response => {
       this.res = response.result;
-      this.list =  this.res;
+      this.list = this.res;
       console.log(this.res)
-      
-     
-   
-      
-     
+
+
+
+
+
 
     })
   }
- 
-  RowSelected(u:any){
-    
-     this.hideShow = false;
-     this.showHide = true;
-    this.selectedUser=u;
-    
-  console.log(this.selectedUser);
-  
 
-  
-  }
-  
+  RowSelected(u: any) {
 
-    goToPage(){
-      this.router.navigateByUrl('module3/addticket');
-      
+    this.hideShow = false;
+    this.showHide = true;
+    this.selectedUser = u;
+
+    console.log(this.selectedUser);
+
+
 
   }
   
+
+  goToPage() {
+    this.router.navigateByUrl('module3/addticket');
+
+
+  }
+
+
 
   //   search() {
   //   // Declare variables

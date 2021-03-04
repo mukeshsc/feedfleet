@@ -3,7 +3,36 @@
   padding: 5px;
   margin-top:20;
   }
-
+  input#Search {
+    width: 39%;
+    margin: 100px;
+    border: solid;
+    margin-left: 289px;
+    margin-bottom: auto;
+}
+div#tbox {
+    margin-left: 0;
+    margin-right: 0;
+    border: groove;
+    border-width: thin;
+    border-radius: 5px;
+}
+div#ib {
+  border: groove;
+  /* width: 103%; */
+  margin-left: 10px;
+  margin-right: 10px;
+  border-width: thin;
+  height: 250px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+div#t_head {
+  /* border: solid; */
+  background: #24a3da;
+  height: 50px;
+}
 .ticketsvg {
   width: 4%;
   color: steelblue;
@@ -21,7 +50,7 @@
     top: 40px;
 }
 .showbar {
-  width: 15%;
+  width: 20%;
   // border-width: thick;
   margin: 30px;
   border: solid;
